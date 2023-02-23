@@ -1,9 +1,11 @@
 <?php
 class Advertisements extends Controller
 {
-    public function index()
+    public function index($message = '')
     {
-        echo 'advertisement site';
+        $advertisement = $this->model('Advertisement');
+        $advertisement->message = $message;
+        echo 'ads index page ' . $advertisement->message;
     }
 }
 
