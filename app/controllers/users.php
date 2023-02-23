@@ -1,11 +1,23 @@
 <?php
 class Users extends Controller
 {
-    public function index($name = '')
+    public function __construct()
     {
-        $user = $this->model('User');
-        $user->name = $name != '' ? $name : 'Not given!';
-        $this->view('user/index', ['name' => $user->name]);
+        $this->model('User');
+    }
+
+    /**
+     * Displays the associated index page.
+     * @return void
+     */
+    public function index()
+    {
+        $this->view('users/index', ['users'=>$this->model->getAll()]);
+    }
+
+    public function store($name = '')
+    {
+            $this->model->upload($name);
     }
 }
 ?>
