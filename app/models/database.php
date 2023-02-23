@@ -9,7 +9,7 @@ class DBConnection {
      * Initiates a connection to the database.
      * @return PDO|null The PDO object after connection, if successful, else null
      */
-    public function connect()
+    protected function connect()
     {
         try {
             $pdo = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);

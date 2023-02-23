@@ -1,12 +1,7 @@
 <?php
-require_once('database.php');
-class User extends DBConnection
+require_once('model.php');
+class User extends Model
 {
-    protected $pdo;
-    public function __construct()
-    {
-        $this->pdo = $this->connect();
-    }
 
     /**
      * Fetches all users from the database.
