@@ -5,5 +5,10 @@ class Controller
     {
         echo ('index!');
     }
+
+    public function view($view, $data = [])
+    {
+        require_once('../app/views/' . $view . '.php');
+    }
 }
 ?>
