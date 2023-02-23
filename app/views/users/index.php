@@ -1,3 +1,5 @@
+<a href="/mvcphp/public/home"><button>Home</button></a>
+
 <h1>Users in database:</h1>
 <br>
 <?php foreach ($data['users'] as $user) { ?>
