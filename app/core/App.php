@@ -8,7 +8,7 @@ class App
 
         $url = $this->parseUrl();
 
-        print_r($url);
+        //print_r($url);
 
         if (file_exists('../app/controllers/' . $url[0] . '.php'))
         {
@@ -30,7 +30,7 @@ class App
 
         call_user_func_array([$this->controller, $this->method], $this->params);
 
-        print_r($url);
+        //print_r($url);
     }
 
     /**
