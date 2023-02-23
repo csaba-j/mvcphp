@@ -1,11 +1,18 @@
 <?php
 class Advertisements extends Controller
 {
-    public function index($message = '')
+    public function __construct()
     {
-        $advertisement = $this->model('Advertisement');
-        $advertisement->message = $message;
-        echo 'ads index page ' . $advertisement->message;
+        $this->model('Advertisement');
+    }
+    public function index()
+    {
+        $this->view('advertisements/index', ['advertisements'=>$this->model->getAll()]);
+    }
+
+    public function store($userid, $title)
+    {
+        $this->model->upload($userid, $title);
     }
 }
 
