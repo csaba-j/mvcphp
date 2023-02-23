@@ -15,6 +15,18 @@ class User extends Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    /**
+     * Fetches the name of a single user based on its ID.
+     * @param int $id
+     * @return string The name of the user
+     */
+    public function getNameById($id)
+    {
+            $stmt = $this->pdo->prepare("SELECT name FROM users WHERE id=?");
+            $stmt->execute([$id]);
+            return $stmt->fetchColumn();
+    }
     /**
      * Stores an user in the database.
      * @param string $name The user's name to be stored
