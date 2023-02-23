@@ -1,12 +1,7 @@
 <?php
-require_once('database.php');
-class User extends DBConnection
+require_once('model.php');
+class User extends Model
 {
-    protected $pdo;
-    public function __construct()
-    {
-        $this->pdo = $this->connect();
-    }
 
     /**
      * Fetches all users from the database.
@@ -19,6 +14,18 @@ class User extends DBConnection
         $stmt = $this->pdo->prepare("SELECT * FROM users");
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    /**
+     * Fetches the name of a single user based on its ID.
+     * @param int $id
+     * @return string The name of the user
+     */
+    public function getNameById($id)
+    {
+            $stmt = $this->pdo->prepare("SELECT name FROM users WHERE id=?");
+            $stmt->execute([$id]);
+            return $stmt->fetchColumn();
     }
     /**
      * Stores an user in the database.
