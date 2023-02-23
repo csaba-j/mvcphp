@@ -1,11 +1,11 @@
 <?php
 class Users extends Controller
 {
-    public function index($username = '')
+    public function index($name = '')
     {
         $user = $this->model('User');
-        $user->username = $username != '' ? $username : 'Not given!';
-        $this->view('user/index', ['username' => $user->username]);
+        $user->name = $name != '' ? $name : 'Not given!';
+        $this->view('user/index', ['name' => $user->name]);
     }
 }
 ?>
