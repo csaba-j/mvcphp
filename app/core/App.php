@@ -8,8 +8,6 @@ class App
 
         $url = $this->parseUrl();
 
-        //print_r($url);
-
         if (file_exists('../app/controllers/' . $url[0] . '.php'))
         {
             $this->controller = $url[0];
@@ -29,8 +27,6 @@ class App
         $this->params = $url ? array_values($url) : [];
 
         call_user_func_array([$this->controller, $this->method], $this->params);
-
-        //print_r($url);
     }
 
     /**

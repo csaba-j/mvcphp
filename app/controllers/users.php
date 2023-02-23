@@ -1,31 +1,23 @@
 <?php
 class Users extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        include_once('../app/database.php');
-        $users = [];
-        $sql = "SELECT * FROM users";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        foreach($stmt->fetchAll() as $row) {
-            $user = $this->model('User');
-            $user->name = $row['name'];
-            $user->id = $row['id'];
-            array_push($users, $user);
-        }
-
-        $this->view('users/index', ['users'=>$users]);
+        $this->model('User');
     }
 
-    public function store($name)
+    /**
+     * Displays the associated index page.
+     * @return void
+     */
+    public function index()
     {
-        if(isset($name)){
-            include_once('../app/database.php');
-            $sql = "INSERT INTO users (name) VALUES (?)";
-            $conn->prepare($sql)->execute([$name]);
-        }
+        $this->view('users/index', ['users'=>$this->model->getAll()]);
+    }
+
+    public function store($name = '')
+    {
+            $this->model->upload($name);
     }
 }
 ?>

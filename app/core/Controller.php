@@ -1,10 +1,16 @@
 <?php
 class Controller
-{   
+{
+    protected $model;
+    /**
+     * Changes the model attribute to the currently required type.
+     * @param string $model The type of the model to be used in the specific controller.
+     * @return void
+     */
     public function model($model)
     {
         require_once('../app/models/' . $model . '.php');
-        return new $model();
+        $this->model = new $model();
     }
 
     /**
