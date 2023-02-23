@@ -1,2 +1,3 @@
 Hello! Users home.
-Username given in param: <?=$data['username']?>
+<br>
+User's name given in param: <?=$data['name']?>

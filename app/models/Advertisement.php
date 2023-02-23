@@ -1,6 +1,7 @@
 <?php
 class Advertisement
 {
-    public $message;
+    public $userid;
+    public $title;
 }
 ?>
