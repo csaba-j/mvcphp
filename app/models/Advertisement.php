@@ -1,25 +1,7 @@
 <?php
-require_once('database.php');
-class Advertisement extends DBConnection
+require_once('model.php');
+class Advertisement extends Model
 {
-    protected $pdo;
-    public function __construct()
-    {
-        $this->pdo = $this->connect();
-    }
-    
-    /**
-     * Fetches all advertisements from the database.
-     * @return array A 2D array of the advertisements fetched
-     * 
-     * Indexing: eg. $advertisements[0]['name']
-     */
-    public function getAll()
-    {
-        $stmt = $this->pdo->prepare("SELECT * FROM advertisements");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
 
     /**
      * Stores an advertisement in the database.
