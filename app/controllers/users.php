@@ -12,12 +12,12 @@ class Users extends Controller
      */
     public function index()
     {
-        $this->view('users/index', ['users'=>$this->model->getAll()]);
+        $this->view('users/index', ['users'=>User::getAll()]);
     }
 
     public function store($name = '')
     {
-            $this->model->upload($name);
+            User::upload($name);
     }
 }
 ?>

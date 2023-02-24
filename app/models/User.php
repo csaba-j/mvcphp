@@ -1,6 +1,6 @@
 <?php
-require_once('model.php');
-class User extends Model
+require_once('database.php');
+class User extends DBConnection
 {
 
     /**
@@ -9,9 +9,9 @@ class User extends Model
      * 
      * Indexing: eg. $user[0]['name']
      */
-    public function getAll()
+    public static function getAll()
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users");
+        $stmt = parent::connect()->prepare("SELECT * FROM users");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -21,9 +21,9 @@ class User extends Model
      * @param int $id
      * @return string The name of the user
      */
-    public function getNameById($id)
+    public static function getNameById($id)
     {
-            $stmt = $this->pdo->prepare("SELECT name FROM users WHERE id=?");
+            $stmt = parent::connect()->prepare("SELECT name FROM users WHERE id=?");
             $stmt->execute([$id]);
             return $stmt->fetchColumn();
     }
@@ -32,11 +32,11 @@ class User extends Model
      * @param string $name The user's name to be stored
      * @return void
      */
-    public function upload($name)
+    public static function upload($name)
     {
         if (isset($name)) {
             $sql = "INSERT INTO users (name) VALUES (?)";
-            $this->pdo->prepare($sql)->execute([$name]);
+            parent::connect()->prepare($sql)->execute([$name]);
         }
     }
 

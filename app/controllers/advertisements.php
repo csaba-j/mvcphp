@@ -7,7 +7,7 @@ class Advertisements extends Controller
     }
     public function index()
     {
-        $this->view('advertisements/index', ['advertisements'=>$this->model->getAll()]);
+        $this->view('advertisements/index', ['advertisements'=>Advertisement::getAll()]);
     }
 
     public function store($userid, $title)

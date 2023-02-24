@@ -1,6 +1,6 @@
 <?php
-require_once('model.php');
-class Advertisement extends Model
+require_once('database.php');
+class Advertisement extends DBConnection
 {
     /**
      * Fetches all advertisements from the database.
@@ -8,9 +8,9 @@ class Advertisement extends Model
      * 
      * Indexing: eg. $advertisements[0]['name']
      */
-    public function getAll()
+    public static function getAll()
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM advertisements");
+        $stmt = parent::connect()->prepare("SELECT * FROM advertisements");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -21,11 +21,11 @@ class Advertisement extends Model
      * @param string $title The title of the advertisement
      * @return void
      */
-    public function upload($userid = '', $title = '')
+    public static function upload($userid = '', $title = '')
     {
         if (isset($userid) && isset($title)){
             $sql = "INSERT INTO advertisements (userid, title) VALUES (?,?)";
-            $this->pdo->prepare($sql)->execute([$userid, $title]);
+            parent::connect()->prepare($sql)->execute([$userid, $title]);
         }
     }
 }
