@@ -11,7 +11,7 @@
         <div class="flex-center">
                 <?php foreach ($data['users'] as $user) { ?>
                     <div class="element">
-                        <h2><?= $user['name'] ?></h2>
+                        <h2><?= $user->name ?></h2>
                     </div>
                 <?php } ?>
 

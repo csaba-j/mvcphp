@@ -12,15 +12,11 @@
                 </div>
                 <div class="flex-left">
                         <br>
-                        <?php foreach ($data['advertisements'] as $advertisement) { ?>
-                        <?php
-                                require_once('../app/models/User.php');
-                                $model = new User();
-                                $username = $model->getNameById($advertisement['userid']);
-                        ?>
+                        <?php foreach ($data['advertisementsWithName'] as $advertisementWithName) { ?>
+
                         <div class="element">
-                                <h3>Advertiser: <?=$username?></h3>
-                                <h2><?= $advertisement['title'] ?></h2>
+                                <h3>Advertiser: <?=$advertisementWithName['username']?></h3>
+                                <h2><?= $advertisementWithName['advertisement']->title ?></h2>
                         </div>
 
                         <?php } ?>

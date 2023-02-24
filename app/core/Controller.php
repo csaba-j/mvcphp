@@ -1,16 +1,26 @@
 <?php
 class Controller
 {
-    protected $model;
     /**
-     * Changes the model attribute to the currently required type.
+     * Uses a model of the required type.
+     * 
      * @param string $model The type of the model to be used in the specific controller.
      * @return void
      */
     public function model($model)
     {
         require_once('../app/models/' . $model . '.php');
-        $this->model = new $model();
+    }
+
+    /**
+     * Uses a service of the required type.
+     * 
+     * @param string $service The type of the service to be used in the specific controller.
+     * @return void
+     */
+    public function service($service)
+    {
+        require_once('../app/services/' . $service . '.php');
     }
 
     /**
@@ -24,8 +34,5 @@ class Controller
     {
         require_once('../app/views/' . $view . '.php');
     }
-
-
-
 }
 ?>
