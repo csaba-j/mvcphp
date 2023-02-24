@@ -12,12 +12,17 @@ class Users extends Controller
      */
     public function index()
     {
-        $this->view('users/index', ['users'=>User::getAll()]);
+        $this->view('users/index', ['users'=>UserService::getAll()]);
     }
 
+    /**
+     * Stores a new user based on user params.
+     * @param string $name
+     * @return void
+     */
     public function store($name = '')
     {
-            User::upload($name);
+            User::create($name);
     }
 }
 ?>

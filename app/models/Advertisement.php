@@ -1,32 +1,26 @@
 <?php
-require_once('database.php');
-class Advertisement extends DBConnection
+require_once('../app/services/AdvertisementService.php');
+class Advertisement
 {
-    /**
-     * Fetches all advertisements from the database.
-     * @return array A 2D array of the advertisements fetched
-     * 
-     * Indexing: eg. $advertisements[0]['name']
-     */
-    public static function getAll()
+    public $userid;
+    public $title;
+
+    public function __construct($userid, $title)
     {
-        $stmt = parent::connect()->prepare("SELECT * FROM advertisements");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        $this->userid = $userid;
+        $this->title = $title;
     }
 
     /**
-     * Stores an advertisement in the database.
-     * @param int $userid The advertising user's ID
+     * Creates a new instance of an Advertisements, and sends it to the service to be uploaded to the database.
+     * @param int $userid The associated user's ID
      * @param string $title The title of the advertisement
      * @return void
      */
-    public static function upload($userid = '', $title = '')
+    public static function create($userid, $title)
     {
-        if (isset($userid) && isset($title)){
-            $sql = "INSERT INTO advertisements (userid, title) VALUES (?,?)";
-            parent::connect()->prepare($sql)->execute([$userid, $title]);
-        }
+        AdvertisementService::upload(new Advertisement($userid,$title));
     }
+
 }
 ?>

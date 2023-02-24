@@ -4,10 +4,10 @@
 <br>
 <?php foreach ($data['advertisements'] as $advertisement) { ?>
 <?php
-        require_once('../app/models/User.php');
-        $username = User::getNameById($advertisement['userid']);
+        require_once('../app/services/UserService.php');
+        $username = UserService::getNameById($advertisement->userid);
 ?>
 
-<h2><?= $advertisement['title'] ?> (Hirdető:<?=$username?>)</h2>
+<h2><?= $advertisement->title ?> (Hirdető:<?=$username?>)</h2>
 
 <?php } ?>
