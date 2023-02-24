@@ -1,43 +1,21 @@
 <?php
-require_once('model.php');
-class User extends Model
+class User
 {
+    public $name;
 
-    /**
-     * Fetches all users from the database.
-     * @return array A 2D array of the users fetched
-     * 
-     * Indexing: eg. $user[0]['name']
-     */
-    public function getAll()
+    public function __construct($name)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM users");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        $this->name = $name;
     }
 
     /**
-     * Fetches the name of a single user based on its ID.
-     * @param int $id
-     * @return string The name of the user
-     */
-    public function getNameById($id)
-    {
-            $stmt = $this->pdo->prepare("SELECT name FROM users WHERE id=?");
-            $stmt->execute([$id]);
-            return $stmt->fetchColumn();
-    }
-    /**
-     * Stores an user in the database.
-     * @param string $name The user's name to be stored
+     * Creates a new instance of a User, and sends it to the service to be uploaded to the database.
+     * @param string $name The user's name
      * @return void
      */
-    public function upload($name)
+    public static function create($name)
     {
-        if (isset($name)) {
-            $sql = "INSERT INTO users (name) VALUES (?)";
-            $this->pdo->prepare($sql)->execute([$name]);
-        }
+        UserService::upload(new User($name));
     }
 
 }
