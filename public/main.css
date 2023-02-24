@@ -28,12 +28,20 @@ html {
 }
 
 .button {
+    font-size: medium;
+    color:black;
     padding:2vh 5vh;
+    border: 2px solid rgb(252, 178, 40);
+    border-radius: 5px;
+    transition-duration: 0.2s;
 }
 
-.home-button {
-    flex:1;
-}
+.button:hover {
+    background-color: rgb(252, 178, 40);
+    color: white;
+    border: 2px solid rgb(252, 178, 40);
+    border-radius: 5px;
+  }
 
 .flex-center {
     margin:3vw;
@@ -52,7 +60,7 @@ html {
     flex-direction: column;
     align-items:flex-start;
     row-gap: 10px;
-    height:50vh;
+    height:70vh;
 }
 
 ul{
@@ -61,6 +69,8 @@ ul{
 
 .element {
     text-align: center;
-    border: 3px solid black;
-    width:30%;
+    border: 3px solid rgb(27, 133, 255);
+    background-color: rgb(183, 222, 255);
+    border-radius: 25px;
+    width:25vw;
 }
