@@ -2,12 +2,8 @@
 
 <h1>Advertisements in database:</h1>
 <br>
-<?php foreach ($data['advertisements'] as $advertisement) { ?>
-<?php
-        require_once('../app/services/UserService.php');
-        $username = UserService::getNameById($advertisement->userid);
-?>
+<?php foreach ($data['advertisementsWithName'] as $advertisementWithName) { ?>
 
-<h2><?= $advertisement->title ?> (Hirdető:<?=$username?>)</h2>
+<h2><?= $advertisementWithName['advertisement']->title ?> (Advertiser: <?=$advertisementWithName['username']?>)</h2>
 
 <?php } ?>

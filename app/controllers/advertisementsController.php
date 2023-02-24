@@ -12,7 +12,7 @@ class Advertisements extends Controller
      */
     public function index()
     {
-        $this->view('advertisements/index', ['advertisements'=>AdvertisementService::getAll()]);
+        $this->view('advertisements/index', ['advertisementsWithName'=>AdvertisementService::getAllWithUsernames()]);
     }
 
     /**

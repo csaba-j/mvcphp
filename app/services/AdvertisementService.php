@@ -1,7 +1,5 @@
 <?php
-require_once('../app/models/database.php');
-require_once('../app/models/Advertisement.php');
-class AdvertisementService extends DBConnection 
+class AdvertisementService extends Service
 {
     /**
      * Fetches all advertisements from the database.
@@ -17,6 +15,20 @@ class AdvertisementService extends DBConnection
             array_push($advertisements, new Advertisement($advertisement['userid'],$advertisement['title']));
         }
         return $advertisements;
+    }
+
+    public static function getAllWithUsernames()
+    {
+        require_once('../app/services/UserService.php');
+        $advertisementsWithNames = [];
+        foreach(AdvertisementService::getAll() as $advertisement)
+        {
+            array_push($advertisementsWithNames, [
+                'advertisement' => $advertisement,
+                'username' => UserService::getNameById($advertisement->userid)
+            ]);
+        }
+        return $advertisementsWithNames;
     }
 
     /**
