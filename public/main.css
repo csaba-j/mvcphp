@@ -1,4 +1,18 @@
 #title{
     text-align: center;
     margin:2%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#button-container{
+    height: 5vh;
+    display:flex;
+    justify-content: center;
+    column-gap: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.button {
+    padding:2vh 2vh;
 }

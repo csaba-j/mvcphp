@@ -3,5 +3,7 @@
 <div id="title">
     <h1>Welcome to the app!</h1>
 </div>
-<a href="/mvcphp/public/users"><button>Users</button></a>
-<a href="/mvcphp/public/advertisements"><button>Advertisements</button></a>
+<div id="button-container">
+    <a href="/mvcphp/public/users"><button class="button">Users</button></a>
+    <a href="/mvcphp/public/advertisements"><button class="button">Advertisements</button></a>
+</div>
