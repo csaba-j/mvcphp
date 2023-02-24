@@ -17,6 +17,10 @@ class AdvertisementService extends Service
         return $advertisements;
     }
 
+    /**
+     * Fetches all advertisements, then fetches the users' names associated with a given advertisement.
+     * @return array associative array containing the advertisement object and the username, by indexes 'advertisement' and 'username'.
+     */
     public static function getAllWithUsernames()
     {
         require_once('../app/services/UserService.php');

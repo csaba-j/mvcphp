@@ -1,10 +1,6 @@
 <?php
 class UserService extends Service
 {
-    public function __construct()
-    {
-        $this->model('User');
-    }
     /**
      * Fetches all users from the database.
      * @return User[] An array of the users fetched
