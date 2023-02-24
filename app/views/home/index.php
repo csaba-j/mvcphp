@@ -3,8 +3,11 @@
 <html>
     <body>
         <div class="navbar">
-            <a href="/mvcphp/public/users"><button class="button">Users</button></a>
-            <a href="/mvcphp/public/advertisements"><button class="button">Advertisements</button></a>
+            <div>
+                <a href="/mvcphp/public/users"><button class="button">Users</button></a>
+                <a href="/mvcphp/public/advertisements"><button class="button">Advertisements</button></a>
+            </div>
+            <a href="/mvcphp/public/home"><button class="home-button button">Home</button></a>
         </div>
         <div id="title">
             <h1>Welcome to the app!</h1>
