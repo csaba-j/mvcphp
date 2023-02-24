@@ -1,7 +1,16 @@
 #title{
     text-align: center;
-    margin:2%;
+    margin:2% 2% 2% 2%;
+}
+
+.main-content {
+    width: 100vw;
+    height: 100vh;
+}
+
+html {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: azure;
 }
 
 #button-container{
@@ -14,5 +23,43 @@
 }
 
 .button {
-    padding:2vh 2vh;
+    padding:2vh 5vh;
+}
+
+.navbar {
+    margin-top:2vh;
+    margin-left:3vw;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.flex-center {
+    margin:3vw;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items:center;
+    row-gap: 10px;
+    height:50vh;
+}
+
+.flex-left {
+    margin:3vw;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items:flex-start;
+    row-gap: 10px;
+    height:50vh;
+}
+
+ul{
+    list-style: none;
+}
+
+.element {
+    text-align: center;
+    border: 3px solid black;
+    width:30%;
 }
