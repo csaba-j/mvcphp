@@ -1,6 +1,5 @@
 <?php
-require_once('../app/services/UserService.php');
-class User extends DBConnection
+class User
 {
     public $name;
 

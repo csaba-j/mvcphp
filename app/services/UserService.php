@@ -1,8 +1,10 @@
 <?php
-require_once('../app/models/database.php');
-require_once('../app/models/User.php');
-class UserService extends DBConnection
+class UserService extends Service
 {
+    public function __construct()
+    {
+        $this->model('User');
+    }
     /**
      * Fetches all users from the database.
      * @return User[] An array of the users fetched

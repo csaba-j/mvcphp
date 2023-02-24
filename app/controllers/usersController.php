@@ -4,6 +4,7 @@ class Users extends Controller
     public function __construct()
     {
         $this->model('User');
+        $this->service('UserService');
     }
 
     /**

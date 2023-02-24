@@ -1,7 +1,11 @@
 <?php
-require_once('../app/services/AdvertisementService.php');
 class Advertisements extends Controller
 {
+    public function __construct()
+    {
+        $this->model('Advertisement');
+        $this->service('AdvertisementService');
+    }
     /**
      * Displays the index page of advertisements, listing all available advertisements
      * @return void

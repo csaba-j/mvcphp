@@ -1,5 +1,4 @@
 <?php
-require_once('../app/services/AdvertisementService.php');
 class Advertisement
 {
     public $userid;
