@@ -2,6 +2,18 @@
 require_once('model.php');
 class Advertisement extends Model
 {
+    /**
+     * Fetches all advertisements from the database.
+     * @return array A 2D array of the advertisements fetched
+     * 
+     * Indexing: eg. $advertisements[0]['name']
+     */
+    public function getAll()
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM advertisements");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 
     /**
      * Stores an advertisement in the database.
